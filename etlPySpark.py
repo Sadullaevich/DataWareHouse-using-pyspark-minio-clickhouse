@@ -64,7 +64,7 @@ def update_delta_table(spark, update_file_path, delta_table_path, key_column):
     updated_data.show(5)
 
 
-MINIO_ENDPOINT = "http://localhost:9000"  # Update as per your setup
+MINIO_ENDPOINT = "http://localhost:9001"  # Update as per your setup
 ACCESS_KEY = "minioadmin"
 SECRET_KEY = "minioadmin"
 BUCKET_NAME = "web33"
@@ -88,7 +88,7 @@ spark = SparkSession.builder \
 spark.sparkContext.setLogLevel("ERROR")
 
 hadoop_conf = spark._jsc.hadoopConfiguration()
-hadoop_conf.set("fs.s3a.endpoint", "http://localhost:9000")
+hadoop_conf.set("fs.s3a.endpoint", "http://localhost:9001")
 hadoop_conf.set("fs.s3a.access.key", "minioadmin")
 hadoop_conf.set("fs.s3a.secret.key", "minioadmin")
 hadoop_conf.set("fs.s3a.path.style.access", "true")
